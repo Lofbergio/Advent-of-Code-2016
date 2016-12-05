@@ -9,6 +9,11 @@ using System.IO;
 
 namespace Helper
 {
+    public static class ExtensionMethods
+    {
+        public static string EasyJoin(this string[] value, string separator = "") => string.Join(separator, value);
+    }
+
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public static class Utilities
     {

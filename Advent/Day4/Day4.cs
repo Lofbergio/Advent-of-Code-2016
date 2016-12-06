@@ -35,10 +35,8 @@ namespace Day4
 
                 var name = line.Remove(line.LastIndexOf("-", StringComparison.Ordinal)).Replace("-", string.Empty).ToCharArray();
                 idSum += new string(name.GroupBy(c => c)
-                                        .Select(g => new { g.Key, Count = g.Count() })
-                                        .OrderByDescending(x => x.Count)
-                                        .ThenBy(x => x.Key)
-                                        .Take(5)
+                                        .OrderByDescending(x => x.Count()).ThenBy(x => x.Key)
+                                        .Take(checkSum.Length)
                                         .Select(x => x.Key)
                                         .ToArray()).Equals(checkSum) ? id : 0;
 
